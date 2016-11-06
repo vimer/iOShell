@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jump test page</title>
+		<script type="text/javascript">
+
+
+		var unionBackList = [];
+        function unionBack() {
+            var ubl = unionBackList.length;
+            if(ubl>0) {
+                unionBackList.shift()();
+            }
+            else{
+                window.history.back();
+                setTimeout(function() { window.location.href ='yanghao://native.xxx.com?action=canGoBack'; },0);
+            }
+        }
+		
+			function jump(){
+				alert("kaihu");
+				
+//				alert(document.getElementById("send").value);
+				window.location.href = 'yanghao://native.xxx.com?action=kaihu_new&param={"ex":"05"}';
+			}
+			function nativeCallback(callback){
+				alert("get result from native:"+JSON.stringify(callback));
+				document.getElementById("result").innerText=callback;
+			}
+			function exit(){
+				window.location.href = "yanghao://native.xxx.com?action=exit";
+			}
+			function pushTag(){
+				window.location.href = 'yanghao://native.xxx.com?action=pushTag&param={"tags":["上海","南京","北京"]}&callbackName=testCallback';
+			}
+
+			function canGoBack(){
+				window.location.href = "pageA.html";
+			}
+
+			function goBack(){
+				window.location.href = "yanghao://native.xxx.com?action=goBack";
+			}
+
+			function playSound(){
+				window.location.href = 'yanghao://native.xxx.com?action=sound&param={"name":"0.wav"}';
+			}
+
+			function showRecorder(){
+				window.location.href = "yanghao://native.xxx.com?action=showRecorder";
+			}
+
+			function dismissRecorder(){
+				window.location.href = "yanghao://native.xxx.com?action=dismissRecorder";
+			}
+
+			function shareScreenToFriends(){
+				window.location.href = 'yanghao://native.xxx.com?action=shareScreen&param={"friends":"1","title":"分享title","content":"分享content"}';
+			}
+
+			function shareScreenToChat(){
+				window.location.href = 'yanghao://native.xxx.com?action=shareScreen&param={"friends":"0","title":"分享title","content":"分享content"}';
+			}
+
+			function shareUrlToChat(){
+				window.location.href = 'yanghao://native.xxx.com?action=shareUrl&param={"friends":"0","url":"http://www.xxx.com","title":"分享title","content":"分享content"}';
+			}
+
+			function shareUrlToFriends(){
+				window.location.href = 'yanghao://native.xxx.com?action=shareUrl&param={"friends":"1","url":"http://www.xxx.com","title":"分享title","content":"分享content"}';
+			}
+			function captureScreen(){
+				window.location.href = 'yanghao://native.xxx.com?action=captureScreen&callbackName=testCallback';
+			}
+
+			function sendScreenToChat(){
+				window.location.href = 'yanghao://native.xxx.com?action=sendScreenToWX&param={"friends":"0","title":"分享title","content":"分享content"}';
+			}
+
+			function sendScreenToFriends(){
+				window.location.href = 'yanghao://native.xxx.com?action=sendScreenToWX&param={"friends":"1","title":"分享title","content":"分享content"}';
+			}
+
+			function sendScreenToQQChat(){
+				window.location.href = 'yanghao://native.xxx.com?action=sendScreenToQQ&param={"friends":"0","title":"分享title","content":"分享content"}';
+			}
+
+			function sendScreenToQQFriends(){
+				window.location.href = 'yanghao://native.xxx.com?action=sendScreenToQQ&param={"friends":"1","title":"分享title","content":"分享content"}';
+			}
+			function shareUrlToQQ(){
+				window.location.href = 'yanghao://native.xxx.com?action=shareUrlToQQ&param={"friends":"0","url":"http://www.xxx.com","title":"分享title","content":"分享content"}';
+			}
+			function shareUrlToQZone(){
+				window.location.href = 'yanghao://native.xxx.com?action=shareUrlToQQ&param={"friends":"1","url":"http://www.xxx.com","title":"分享title","content":"分享content"}';
+			}
+			function nativeResult(action,result){
+				alert("action:"+action+" result:"+result);
+			}
+
+			function testCallback(msg){
+				alert(msg);
+			}
+
+			function sendScreenToChatCallback(msg){
+				window.location.href = 'yanghao://native.xxx.com?action=sendScreenToWX&param={"path":"'+msg+'","friends":"0","title":"分享title","content":"分享content"}';
+			}
+
+			function sendScreenToFriendsCallback(msg){
+				window.location.href = 'yanghao://native.xxx.com?action=sendScreenToWX&param={"path":"'+msg+'","friends":"1","title":"分享title","content":"分享content"}';
+			}
+			function outWeb() {
+				window.location.href = 'yanghao://native.xxx.com?action=outWeb&param={"url":"http://www.baidu.com"}'
+			}
+			function alarmcallback() {
+				window.location.href = 'yanghao://native.xxx.com?action=alarmcallback&callbackName=alarmcallback'
+			}
+			function takePhoto() {
+				window.location.href = 'yanghao://native.xxx.com?action=takePhoto&callbackName=nativeCallback';
+			}
+			function takeOnline() {
+				window.location.href = 'yanghao://native.xxx.com?action=takeOnline';
+			}
+			function postData() {
+				window.location.href = 'yanghao://native.xxx.com?action=postData&param={"data":"data","setheader":["Cookie:424324","mycookie:dewjdhwe"],"timeOut":"10","url":"http://xxxx.com/issue_tradeweb/httpXmlServlet", "encode":"gbk"}&callbackName=testCallback';
+			}
+			function liveDetail(){
+				window.location.href = 'yanghao://native.xxx.com?action=liveDetail&param='+encodeURIComponent('{"actionId":"A20161102000016t","web":"http://121.41.98.249:55151/?room_id=928ce25420&uid=0"}');  
+			}
+			function vodDetail(){
+				window.location.href = 'yanghao://native.xxx.com?action=vodDetail&param='+encodeURIComponent('{"uuid":"xjbj1yywcu","vuid":"1bbeb9bcc7","web":"http://xxxx.com/?room_id=928ce25420&uid=0"}'); 
+			}
+			function createKey(){
+				window.location.href = 'yanghao://native.xxx.com?action=createkey&param='+encodeURIComponent('{"time":"1478078059"}')+'&callbackName=testCallback'; 
+			}
+
+		</script>
+	</head>
+	<body>
+		<h1>this is jump test page</h1>
+		<div align="center">
+			<input value="createKey" onclick="createKey()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="直播接口" onclick="liveDetail()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="点播接口" onclick="vodDetail()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="拍照" onclick="takePhoto()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="直播" onclick="takeOnline()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="注册回调" onclick="alarmcallback()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="kaihu" onclick="jump()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="exit" onclick="exit()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="postData" onclick="postData()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<!--<input value="pushTag" onclick="pushTag()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />-->
+			<input value="showRecorder" onclick="showRecorder()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="dismissRecorder" onclick="dismissRecorder()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="outWeb" onclick="outWeb()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<!--<input value="回退键测试" onclick="canGoBack()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />-->
+			<input value="保存屏幕" onclick="captureScreen()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="播放声音" onclick="playSound()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="分享屏幕到朋友圈(先保存屏幕)" onclick="sendScreenToFriends()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="分享屏幕到会话（先保存屏幕）" onclick="sendScreenToChat()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="分享屏幕到QQ空间(先保存屏幕)" onclick="sendScreenToQQFriends()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="分享屏幕到QQ会话（先保存屏幕）" onclick="sendScreenToQQChat()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="分享微信url到朋友圈" onclick="shareUrlToFriends()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="分享微信url到会话" onclick="shareUrlToChat()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="分享QQurl到会话" onclick="shareUrlToQQ()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+			<input value="分享QQurl到朋友圈" onclick="shareUrlToQZone()" type="button" style="left:50%;width: 50%;height: 40px;"/><br />
+		<!--<textarea id="send" style="width: 100%;overflow-y: visible;">{name=zhangsan,age=111}</textarea>-->
+		<!--<textarea id="result" style="width: 100%;overflow-y: visible;">this area will receive callback data from native</textarea>-->
+		</div>
+	</body>
+</html>

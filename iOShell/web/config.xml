@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<config>
+
+	<xxxxx>
+		<!-- 目前使用的是测试位置，如ios_update_test，AndroidAppUpdateTest，AndroidFileUpdateTest正式使用时候修改参数-->
+		<Android
+				AppChanged="http://www.xxxx.com:81/ESBServlet?command=vms.getChangedListAction&amp;appname=xxxxapk&amp;time="
+				AppUpdate="http://www.xxxx.com:81/xxxxapk/"
+				></Android>
+		<IOS
+
+				AppUpdate="itms-apps://itunes.apple.com/app/xxxxx"
+				Version="1.0"
+				WantUpdate="0"
+				></IOS>
+		<HTTP
+				index="index.html"
+				FileChanged="http://www.xxxx.com:81/ESBServlet?command=vms.getChangedListAction&amp;appname=test_xxxxx&amp;time="
+				FileUpdate="http://www.xxxxx.com:81/test_xxxx/"
+				key = "123456"
+				></HTTP>
+
+	</xxxxx>
+
+</config>
